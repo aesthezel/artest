@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public GameObject building;
+    public GameObject[] buildings;
     private Indicator spawnMark;
 
     void Start()
@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     {
         if(Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
         {
-            GameObject obj = Instantiate(building, spawnMark.transform.position, spawnMark.transform.rotation);
+            GameObject obj = Instantiate(buildings[Random.Range(0, buildings.Length)], spawnMark.transform.position, spawnMark.transform.rotation);
         }
     }
 
